@@ -1,7 +1,13 @@
 steps to run the server:
     1. git clone https://github.com/RahulGahalaut/EDGE_ASSIGNMENT.git
     2. pip install -r requirements.txt
-    3. uvicorn main:app --reload
+    3. Include a config.py file and add this code inside it.
+
+        from pydantic import BaseSettings
+        class Settings(BaseSettings):
+            DATABASE_URL: str = "YOUR_DATABASE_URL" // Example -"postgresql://postgres:Rahul1234@localhost:5000/postgres"
+
+    4. uvicorn main:app --reload
 
 System Specification:
     The system is designed as a Python FastAPI REST service that interacts with a PostgreSQL database. It provides endpoints to store and retrieve data from a table named source_data in the database. The system design follows the client-server architecture, where the FastAPI server acts as the backend that handles HTTP requests and communicates with the PostgreSQL database for data storage and retrieval.
